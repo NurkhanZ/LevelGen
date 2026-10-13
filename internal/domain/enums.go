@@ -1,6 +1,7 @@
 package domain
 
-type TileType int 
+
+type TileType int
 
 type TaskStatus string
 
@@ -14,10 +15,10 @@ const (
 )
 
 const (
-	StatusPending TaskStatus = "pending"
+	StatusPending    TaskStatus = "pending"
 	StatusProcessing TaskStatus = "processing"
-	StatusCompleted TaskStatus = "completed"
-	StatusFailed TaskStatus = "failed"
+	StatusCompleted  TaskStatus = "completed"
+	StatusFailed     TaskStatus = "failed"
 )
 
 // var stateName = map[TaskStatus]string {

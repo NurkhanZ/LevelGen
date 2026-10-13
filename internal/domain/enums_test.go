@@ -3,7 +3,6 @@ package domain
 import (
 	"testing"
 )
-
 func TestTileType(t *testing.T){
 	cases := []struct {
 		in TileType
