@@ -12,15 +12,18 @@ type Generator interface {
 }
 
 func (pg PlatformGenerator) Generate(params domain.LevelParams) (*domain.TileMap, error) {
+	// validate generator inputs
 	e := params.Validate();
 	if e != nil {
 		return nil, fmt.Errorf("Generation failed. %w", e)
 	}
+
+	// create TileMap of size Width*Height, filled with Air
 	// outer slice allocation
 	grid := make([][]domain.TileType, params.Height)
 	for y := range grid {
 		// inner slice allocation, these are non shared arrays
-		grid[y] = make([]domain.TileType, params.Width)
+		grid[y] = make([]domain.TileType, params.Width) 
 	}
 
 	tm := domain.TileMap{
@@ -28,6 +31,12 @@ func (pg PlatformGenerator) Generate(params domain.LevelParams) (*domain.TileMap
 		Height: params.Height,
 		Grid: grid,
 	}
-	// fmt.Print(tm)
+
+	// generate a floor, for every column, at the last row.
+	bottom_row := tm.Grid[tm.Height-1]
+	for x := range bottom_row{ 
+		bottom_row[x] = domain.Ground
+	}
+
 	return &tm, e
 }
