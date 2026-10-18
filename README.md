@@ -8,7 +8,7 @@ This project is a CLI program that allows to automatically generate unique and r
 `git clone: https://github.com/NurkhanZ/LevelGen.git`<br>
 And then just run:<br> 
 `go run .\cmd\level-gen\level-gen.go`.
-    - Generated level map will be printend out in the console as ASCII typed Tile Map of default size:
+    - Generated level map will be printed out in the console as ASCII typed Tile Map of default size:
         - width = 30 tiles, height = 30 tiles.
 
 - Run `go run .\cmd\level-gen\level-gen.go -interactive` for an interactive shell.
